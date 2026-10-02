@@ -1,4 +1,4 @@
-package com.example.jogo;
+package com.example.jogo.casa;
 
 public abstract class Casa {
 }
