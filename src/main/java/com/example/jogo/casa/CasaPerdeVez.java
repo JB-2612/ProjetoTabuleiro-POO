@@ -1,4 +1,27 @@
 package com.example.jogo.casa;
 
-public class CasaPerdeVez {
+import com.example.jogo.Jogo;
+import com.example.jogo.jogador.Jogador;
+
+public class CasaPerdeVez extends Casa {
+
+    public CasaPerdeVez(int numero) {
+        super(numero);
+    }
+
+    @Override
+    public String getRotulo() {
+        return "⏸";
+    }
+
+    @Override
+    public String getCorFundo() {
+        return "#ffcccc";
+    }
+
+    @Override
+    public String aplicarEfeito(Jogo jogo, Jogador jogador) {
+        jogador.setPerdeProximaRodada(true);
+        return jogador + " caiu na casa " + getNumero() + " e não joga na próxima rodada!";
+    }
 }

@@ -1,6 +1,6 @@
 package com.example.jogo.jogador;
 
-class JogadorNormal extends Jogador{
+public class JogadorNormal extends Jogador{
     public JogadorNormal(String color){
         super (color);
     }

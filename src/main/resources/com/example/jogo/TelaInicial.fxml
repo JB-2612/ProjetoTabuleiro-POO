@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.jogo.ui.TelaInicialController"
-            prefHeight="720.0" prefWidth="1200.0">
-
+<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jogo.ui.TelaInicialController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="462.0" layoutY="292.0" prefHeight="68.0" prefWidth="277.0" style="-fx-background-color: white;" text="Olá Jogador!">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font name="Droid Sans Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
