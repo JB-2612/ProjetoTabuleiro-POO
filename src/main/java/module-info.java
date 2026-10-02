@@ -7,4 +7,6 @@ module com.example.jogo {
     exports com.example.jogo;
     exports com.example.jogo.controller;
     opens com.example.jogo.controller to javafx.fxml;
+    exports com.example.jogo.jogador;
+    opens com.example.jogo.jogador to javafx.fxml;
 }
