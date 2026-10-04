@@ -15,8 +15,9 @@ public abstract class Casa {
         return numero;
     }
 
-    public String getRotulo() {
-        return "";
+    /** Nome do arquivo de ícone (em src/main/resources/com/example/jogo/image/), ou null se não tiver ícone. */
+    public String getIcone() {
+        return null;
     }
 
     public String getCorFundo() {

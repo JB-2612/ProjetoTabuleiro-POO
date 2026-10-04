@@ -25,8 +25,8 @@ public class CasaSurpresa extends Casa {
     }
 
     @Override
-    public String getRotulo() {
-        return "?";
+    public String getIcone() {
+        return "tipo.png";
     }
 
     @Override

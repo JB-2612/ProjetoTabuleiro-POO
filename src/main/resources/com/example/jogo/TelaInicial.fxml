@@ -1,19 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jogo.ui.TelaInicialController">
-   <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="462.0" layoutY="292.0" prefHeight="68.0" prefWidth="277.0" style="-fx-background-color: white;" text="Olá Jogador!">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-         <font>
-            <Font name="Droid Sans Bold" size="13.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.jogo.ui.TelaInicialController"
+            prefHeight="800.0" prefWidth="1200.0"
+            style="-fx-background-color: #f4f4f4;">
+
+   <top>
+      <VBox alignment="CENTER" spacing="4" style="-fx-padding: 25 0 10 0;">
+         <Label text="Jogo de Tabuleiro" style="-fx-font-size: 28; -fx-font-weight: bold;"/>
+      </VBox>
+   </top>
+
+   <center>
+      <ScrollPane fitToWidth="true" style="-fx-background: #f4f4f4; -fx-background-color: transparent;">
+         <VBox spacing="20" style="-fx-padding: 10 60 30 60;">
+
+            <!-- Texto de boas-vindas e regras gerais -->
+            <VBox spacing="8" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 8;">
+               <Label text="Olá Jogadores. Esse é um tabuleiro Pokémon e as regras são:"
+                      style="-fx-font-size: 16; -fx-font-weight: bold;" wrapText="true"/>
+
+               <Label text="O tabuleiro tem 41 casas (0 a 40), e vence quem chegar primeiro na casa 40. Cada jogador escolhe uma cor e um tipo. A cada rodada, você joga dois dados e anda a soma das casas. Se tirar dois valores iguais, joga de novo."
+                      wrapText="true" style="-fx-font-size: 13;"/>
+
+               <Label text="Tipos de jogador:" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-padding: 8 0 0 0;"/>
+               <Label text="• Normal: soma dos dados pode ser qualquer valor, alta ou baixa."
+                      wrapText="true" style="-fx-font-size: 13;"/>
+               <Label text="• Sortudo: a soma dos dados é sempre 7 ou mais."
+                      wrapText="true" style="-fx-font-size: 13;"/>
+               <Label text="• Azarado: a soma dos dados é sempre 6 ou menos. Não avança nas casas da sorte."
+                      wrapText="true" style="-fx-font-size: 13;"/>
+            </VBox>
+
+            <!-- Casas especiais, com ícone ao lado da explicação -->
+            <VBox spacing="12" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 8;">
+               <Label text="Casas especiais:" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+               <HBox spacing="12" alignment="CENTER_LEFT">
+                  <ImageView fitWidth="32" fitHeight="32" preserveRatio="true">
+                     <image><Image url="@image/para.png"/></image>
+                  </ImageView>
+                  <Label text="Casas 10, 25 e 38 — Perde a vez: o jogador que parar aqui não joga na próxima rodada."
+                         wrapText="true" style="-fx-font-size: 13;" maxWidth="700"/>
+               </HBox>
+
+               <HBox spacing="12" alignment="CENTER_LEFT">
+                  <ImageView fitWidth="32" fitHeight="32" preserveRatio="true">
+                     <image><Image url="@image/tipo.png"/></image>
+                  </ImageView>
+                  <Label text="Casa 13 — Surpresa: o jogador tira uma carta aleatória que muda seu tipo (Normal, Sortudo ou Azarado)."
+                         wrapText="true" style="-fx-font-size: 13;" maxWidth="700"/>
+               </HBox>
+
+               <HBox spacing="12" alignment="CENTER_LEFT">
+                  <ImageView fitWidth="32" fitHeight="32" preserveRatio="true">
+                     <image><Image url="@image/sorte.png"/></image>
+                  </ImageView>
+                  <Label text="Casas 5, 15 e 30 — Sorte: o jogador avança 3 casas extras, a não ser que seja Azarado."
+                         wrapText="true" style="-fx-font-size: 13;" maxWidth="700"/>
+               </HBox>
+
+               <HBox spacing="12" alignment="CENTER_LEFT">
+                  <ImageView fitWidth="32" fitHeight="32" preserveRatio="true">
+                     <image><Image url="@image/volta.png"/></image>
+                  </ImageView>
+                  <Label text="Casas 17 e 27 — Volta ao início: o jogador escolhe um adversário para voltar para a casa 0."
+                         wrapText="true" style="-fx-font-size: 13;" maxWidth="700"/>
+               </HBox>
+
+               <HBox spacing="12" alignment="CENTER_LEFT">
+                  <ImageView fitWidth="32" fitHeight="32" preserveRatio="true">
+                     <image><Image url="@image/troca.png"/></image>
+                  </ImageView>
+                  <Label text="Casas 20 e 35 — Mágica: o jogador troca de posição com quem estiver mais atrás no jogo."
+                         wrapText="true" style="-fx-font-size: 13;" maxWidth="700"/>
+               </HBox>
+            </VBox>
+
+            <!-- Seleção de jogadores -->
+            <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 8;" alignment="CENTER">
+               <Label text="Escolha os jogadores (mínimo 2, com pelo menos 2 tipos diferentes)"
+                      style="-fx-font-size: 13; -fx-text-fill: #666;"/>
+
+               <VBox fx:id="boxSelecao" alignment="CENTER" spacing="10"/>
+
+               <CheckBox fx:id="chkDebug" text="Modo Debug (escolher casa manualmente, sem dados)"/>
+               <Button text="Iniciar Jogo" onAction="#iniciar"
+                       style="-fx-font-size: 14; -fx-padding: 8 24 8 24; -fx-background-color: #2e7d32; -fx-text-fill: white;"/>
+               <Label fx:id="lblErro" style="-fx-text-fill: #c62828; -fx-font-weight: bold;"/>
+            </VBox>
+
+         </VBox>
+      </ScrollPane>
+   </center>
+
+</BorderPane>

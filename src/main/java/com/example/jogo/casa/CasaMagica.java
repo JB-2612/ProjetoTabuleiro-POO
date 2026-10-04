@@ -12,8 +12,8 @@ public class CasaMagica extends Casa {
     }
 
     @Override
-    public String getRotulo() {
-        return "✨";
+    public String getIcone() {
+        return "troca.png";
     }
 
     @Override

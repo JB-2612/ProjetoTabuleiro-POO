@@ -13,6 +13,8 @@ public class Jogo {
     private final List<Jogador> jogadores;
     private final Dado d1 = new Dado();
     private final Dado d2 = new Dado();
+    private int ultimoDado1 = -1;
+    private int ultimoDado2 = -1;
 
     private int vez = 0;
     private final boolean debug;
@@ -61,11 +63,13 @@ public class Jogo {
             jogador.setPosicao(casaDebug);
             mensagens.add("[DEBUG] " + jogador + " vai direto para a casa " + casaDebug + ".");
         } else {
-            int[] dados = jogador.lancarDados(d1, d2);
-            mensagens.add(jogador + " (" + jogador.getTipo() + ") tirou " + dados[0]
-                    + " e " + dados[1] + " = " + (dados[0] + dados[1]) + ".");
-            jogador.mover(dados[0] + dados[1]);
-            jogaDeNovo = dados[0] == dados[1];
+        int[] dados = jogador.lancarDados(d1, d2);
+        ultimoDado1 = dados[0];
+        ultimoDado2 = dados[1];
+        mensagens.add(jogador + " (" + jogador.getTipo() + ") tirou " + dados[0]
+                + " e " + dados[1] + " = " + (dados[0] + dados[1]) + ".");
+        jogador.mover(dados[0] + dados[1]);
+        jogaDeNovo = dados[0] == dados[1];
         }
 
         if (jogador.getPosicao() < Tabuleiro.FIM) {
@@ -117,4 +121,6 @@ public class Jogo {
     public Tabuleiro getTabuleiro() { return tabuleiro; }
     public Jogador getVencedor() { return vencedor; }
     public boolean isDebug() { return debug; }
+    public int getUltimoDado1() { return ultimoDado1; }
+    public int getUltimoDado2() { return ultimoDado2; }
 }

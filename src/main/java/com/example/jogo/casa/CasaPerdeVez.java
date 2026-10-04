@@ -10,8 +10,8 @@ public class CasaPerdeVez extends Casa {
     }
 
     @Override
-    public String getRotulo() {
-        return "⏸";
+    public String getIcone() {
+        return "para.png";
     }
 
     @Override

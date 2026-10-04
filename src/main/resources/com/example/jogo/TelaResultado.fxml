@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.jogo.ui.TelaResultado"
-            prefHeight="720.0" prefWidth="1200.0">
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.jogo.ui.TelaResultadoController"
+      alignment="CENTER" spacing="15"
+      prefHeight="720.0" prefWidth="1200.0"
+      style="-fx-padding:40;">
 
-</AnchorPane>
+    <HBox alignment="CENTER" spacing="15">
+        <ImageView fx:id="imgVencedor" fitWidth="90" fitHeight="90" preserveRatio="true"/>
+        <Label fx:id="lblVencedor" style="-fx-font-size:32; -fx-font-weight:bold;"/>
+    </HBox>
+
+    <TextArea fx:id="txtResultado" editable="false" prefRowCount="10" maxWidth="500"/>
+    <Button text="Jogar novamente" onAction="#reiniciar"
+            style="-fx-font-size: 14; -fx-padding: 8 24 8 24;"/>
+
+</VBox>

@@ -10,8 +10,8 @@ public class CasaSorte extends Casa {
     }
 
     @Override
-    public String getRotulo() {
-        return "★";
+    public String getIcone() {
+        return "sorte.png";
     }
 
     @Override

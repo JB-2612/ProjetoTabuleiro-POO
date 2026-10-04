@@ -13,8 +13,8 @@ public class CasaVoltaInicio extends Casa {
     }
 
     @Override
-    public String getRotulo() {
-        return "↩";
+    public String getIcone() {
+        return "volta.png";
     }
 
     @Override

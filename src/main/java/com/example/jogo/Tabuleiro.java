@@ -4,9 +4,9 @@ import com.example.jogo.casa.Casa;
 import com.example.jogo.casa.CasaMagica;
 import com.example.jogo.casa.CasaNormal;
 import com.example.jogo.casa.CasaPerdeVez;
-import com.example.jogo.casa.CasaSorte;
 import com.example.jogo.casa.CasaSurpresa;
 import com.example.jogo.casa.CasaVoltaInicio;
+import com.example.jogo.casa.CasaSorte;
 
 public class Tabuleiro {
 
