@@ -15,7 +15,7 @@ public abstract class Casa {
         return numero;
     }
 
-    /** Nome do arquivo de ícone (em src/main/resources/com/example/jogo/image/), ou null se não tiver ícone. */
+
     public String getIcone() {
         return null;
     }

@@ -12,7 +12,7 @@ public abstract class Jogador {
 
     public abstract String getTipo();
     protected abstract boolean somaValida(int soma);
-    /** Usado pelas casas da sorte. */
+
     public boolean andaComSorte() { return true; }
 
     public int[] lancarDados(Dado d1, Dado d2) {
